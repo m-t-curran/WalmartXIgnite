@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2Fg&psig=AOvVaw3M2mFMhS3_7U_hBjXQ4w1u&ust=1695144676701000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCPjDxJPYtIEDFQAAAAAdAAAAABAD">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .topnav .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .topnav .openbtn:hover {
+            background-color: #0000;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #afabab;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            margin-left: 0;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        .topnav img {
+            width: 24px;
+            height: 24px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            cursor: pointer;
+        }
+
+        .topnav .about-link {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .highlighted-text {
+            background-color: #333333;
+            padding: 10px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .bottom-text {
+            position: fixed;
+            bottom: 500px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logo-ignite {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: left;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .logo-ignite img {
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header-text {
+            position: fixed;
+            left: 0;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #333333;
+        }
+
+        /* Styles for the input field */
+        .input-field {
+            margin-top: 30px;
+            font-size: 16px;
+            padding: 8px;
+            width: 250px; /* Adjust the width as needed */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+<div class="topnav">
+    <button class="openbtn" onclick="toggleNav()">☰</button>
+</div>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+    <a href="index.html">Home</a>
+    <a href="site1.html">Site 1</a>
+    <a href="site2.html">Site 2</a>
+    <a href="site3.html">Site 3</a>
+    <a href="about.html">About</a>
+</div>
+
+<center>
+    <div class="header-text">
+        <h1 style="font-size:200%; color: White;">Forecasting: Site 1</h1>
+    </div>
+</center>
+<center>
+    <div class="bottom-text">
+        <h1 style="font-size:200%; color: Black;">Walmart Week: <input type="number" class="input-field" min="1" max="52" placeholder="Enter value"></h1>
+    </div>
+</center>
+<div class="logo-ignite">
+    <center>
+        <img src="WalmartXIgnite.jpg" alt="Walmart Logo" style="width: 100px;">
+    </center>
+</div>
+
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var mainContent = document.getElementById("main");
+
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+            mainContent.style.marginLeft = "0";
+        } else {
+            sidebar.style.width = "250px";
+            mainContent.style.marginLeft = "250px";
+        }
+    }
+</script>
+</body>
+
+</html>
