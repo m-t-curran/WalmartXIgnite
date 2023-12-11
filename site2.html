@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Site 2</title>
     <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2Fg&psig=AOvVaw3M2mFMhS3_7U_hBjXQ4w1u&ust=1695144676701000&source=images&cd=vfe&opi=89978449&ved=0CA0QjRxqFwoTCPjDxJPYtIEDFQAAAAAdAAAAABAD">
     <style>
         body {
@@ -152,8 +152,29 @@
             margin-top: 30px;
             font-size: 16px;
             padding: 8px;
-            width: 250px; /* Adjust the width as needed */
+            width: 60%;
             box-sizing: border-box;
+        }
+
+        .random-number {
+            font-size: 18px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .incorrect-message {
+            font-size: 16px;
+            color: red;
+            margin-top: 8px;
+        }
+
+        .prediction-text {
+            position: fixed;
+            bottom: 400px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
@@ -169,18 +190,22 @@
     <a href="site1.html">Site 1</a>
     <a href="site2.html">Site 2</a>
     <a href="site3.html">Site 3</a>
-    <a href="about.html">About</a>
 </div>
 
 <center>
     <div class="header-text">
-        <h1 style="font-size:200%; color: White;">Forecasting: Site 2</h1>
+        <h1 style="font-size:200%; color: White;">Forecasting: Site 1</h1>
     </div>
 </center>
 <center>
     <div class="bottom-text">
-        <h1 style="font-size:200%; color: Black;">Walmart Week: <input type="number" class="input-field" min="1" max="52" placeholder="Enter value"></h1>
+        <h1 style="font-size:200%; color: Black;">Walmart Week: <input type="number" id="walmartWeek" class="input-field" min="1" max="52" placeholder="Enter value" oninput="checkNumber()"></h1>
     </div>
+    <div class="prediction-text">
+        <p id="randomNumber" class="Prediction:"></p>
+        <p id="incorrectMessage" class="incorrect-message"></p>
+    </div>
+
 </center>
 <div class="logo-ignite">
     <center>
@@ -199,6 +224,25 @@
         } else {
             sidebar.style.width = "250px";
             mainContent.style.marginLeft = "250px";
+        }
+    }
+
+    function checkNumber() {
+        var walmartWeekInput = document.getElementById("walmartWeek");
+        var randomNumberElement = document.getElementById("randomNumber");
+        var incorrectMessageElement = document.getElementById("incorrectMessage");
+
+        var enteredNumber = parseInt(walmartWeekInput.value);
+        var randomGeneratedNumber = Math.floor(Math.random() * 89465) + 1;
+
+        if (enteredNumber >= 1 && enteredNumber <= 52) {
+            // Display random number
+            randomNumberElement.textContent = "Prediction: " + randomGeneratedNumber;
+            incorrectMessageElement.textContent = "";
+        } else {
+            // Display incorrect message
+            incorrectMessageElement.textContent = "Please enter a number between 1 and 52.";
+            randomNumberElement.textContent = "";
         }
     }
 </script>
